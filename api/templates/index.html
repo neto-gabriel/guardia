@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <!-- SEO -->
+    <title>GuardIA</title>
+
+    <meta
+        name="description"
+        content="GuardIA é uma plataforma educativa com Inteligência Artificial para auxiliar na prevenção de riscos digitais envolvendo crianças e adolescentes."
+    >
+
+    <meta
+        name="keywords"
+        content="GuardIA, inteligência artificial, proteção digital, educação digital, crianças, adolescentes, cyberbullying, aliciamento virtual, golpes digitais, segurança digital"
+    >
+
+    <meta
+        name="author"
+        content="GuardIA"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <meta
+        name="theme-color"
+        content="#090C1D"
+    >
+
+    <!-- Open Graph -->
+    <meta
+        property="og:title"
+        content="GuardIA — Proteção e Educação Digital"
+    >
+
+    <meta
+        property="og:description"
+        content="Plataforma educativa com Inteligência Artificial voltada à prevenção de riscos digitais envolvendo crianças e adolescentes."
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:locale"
+        content="pt_BR"
+    >
+
+    <!-- Ícone -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="{{ url_for('static', filename='img/guardia.png') }}"
+    >
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVEGAÇÃO
+         ===================================================== -->
+
+    <div class="navegacao">
+
+        <button
+            id="btnConversa"
+            class="nav-button ativo"
+            onclick="mostrarTela('conversa')"
+        >
+            💬 Conversa
+        </button>
+
+
+        <button
+            id="btnAnalisador"
+            class="nav-button"
+            onclick="mostrarTela('analisador')"
+        >
+            🧠 Analisador
+        </button>
+
+
+        <button
+            id="btnPainel"
+            class="nav-button"
+            onclick="mostrarTela('painel')"
+        >
+            📊 Painel do Responsável
+        </button>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CONVERSA
+         ===================================================== -->
+
+    <div
+        id="telaConversa"
+        class="tela ativa"
+    >
+
+        <div class="container container-conversa">
+
+
+            <div class="cabecalho-conversa">
+
+                <img
+                    src="{{ url_for('static', filename='img/guardia.png') }}"
+                    class="logo-imagem-conversa"
+                    alt="Logo GuardIA"
+                >
+
+                <div>
+
+                    <h1>
+                        Conversa
+                    </h1>
+
+                    <p class="descricao-conversa">
+                        Simulação de conversa para demonstração
+                        do sistema GuardIA.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ÁREA DA CONVERSA
+                 ================================================= -->
+
+            <div class="chat-simulacao">
+
+                <div class="chat-cabecalho">
+
+                    <div class="chat-titulo">
+
+                        <span class="chat-status"></span>
+
+                        <span>
+                            Conversa simulada
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        id="botaoLimparConversa"
+                        class="botao-limpar-conversa"
+                        onclick="limparConversa()"
+                        title="Apagar histórico da conversa"
+                    >
+
+                        🗑️
+
+                        <span>
+                            Limpar conversa
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="mensagensConversa"
+                    class="mensagens-conversa"
+                >
+
+                    <div class="mensagem-sistema">
+
+                        🛡️
+
+                        <span>
+                            Digite uma mensagem abaixo para
+                            iniciar a análise.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <label for="mensagem">
+                Mensagem da conversa:
+            </label>
+
+
+            <textarea
+                id="mensagem"
+                class="textarea-conversa"
+                placeholder="Digite uma mensagem para simular..."
+            ></textarea>
+
+
+
+            <button
+                id="botaoEnviar"
+                class="botao-enviar"
+                onclick="enviarMensagemConversa()"
+            >
+
+                ➤ ENVIAR PARA O GUARDIA
+
+            </button>
+
+
+
+            <!-- =================================================
+                 EXEMPLOS
+                 ================================================= -->
+
+            <div class="exemplos">
+
+                <div class="exemplos-titulo">
+                    💡 Exemplos para demonstração
+                </div>
+
+
+                <div class="grupo-exemplos">
+
+                    <div class="grupo-titulo cyber">
+                        🔵 Cyberbullying
+                    </div>
+
+
+                    <button
+                        class="exemplo"
+                        onclick="usarExemplo(this)"
+                    >
+                        Você é um inútil, ninguém gosta de você.
+                    </button>
+
+
+                    <button
+                        class="exemplo"
+                        onclick="usarExemplo(this)"
+                    >
+                        Todo mundo te odeia, você é um lixo.
+                    </button>
+
+                </div>
+
+
+
+                <div class="grupo-exemplos">
+
+                    <div class="grupo-titulo aliciamento">
+                        🟣 Aliciamento virtual
+                    </div>
+
+
+                    <button
+                        class="exemplo"
+                        onclick="usarExemplo(this)"
+                    >
+                        Não conta pra ninguém, fica só entre nós.
+                    </button>
+
+
+                    <button
+                        class="exemplo"
+                        onclick="usarExemplo(this)"
+                    >
+                        Não conte para seus pais e mande uma foto.
+                    </button>
+
+                </div>
+
+
+
+                <div class="grupo-exemplos">
+
+                    <div class="grupo-titulo ameaca">
+                        🔴 Ameaça
+                    </div>
+
+
+                    <button
+                        class="exemplo"
+                        onclick="usarExemplo(this)"
+                    >
+                        Vou te matar se você contar para alguém.
+                    </button>
+
+
+                    <button
+                        class="exemplo"
+                        onclick="usarExemplo(this)"
+                    >
+                        Vou acabar com você e você vai se arrepender.
+                    </button>
+
+                </div>
+
+
+
+                <div class="grupo-exemplos">
+
+                    <div class="grupo-titulo golpe">
+                        🟠 Golpe
+                    </div>
+
+
+                    <button
+                        class="exemplo"
+                        onclick="usarExemplo(this)"
+                    >
+                        Você ganhou um prêmio, clique nesse link.
+                    </button>
+
+
+                    <button
+                        class="exemplo"
+                        onclick="usarExemplo(this)"
+                    >
+                        Envie sua senha e o código de verificação para receber o prêmio.
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ANALISADOR
+         ===================================================== -->
+
+    <div
+        id="telaAnalisador"
+        class="tela"
+    >
+
+        <div class="container">
+
+            <div class="cabecalho-analisador">
+
+                <img
+                    src="{{ url_for('static', filename='img/guardia.png') }}"
+                    class="logo-imagem"
+                    alt="Logo GuardIA"
+                >
+
+
+                <div>
+
+                    <h1>
+                        Analisador GuardIA
+                    </h1>
+
+                    <p class="descricao">
+                        Resultado da análise da conversa
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="resultadoAnalise"
+                class="resultado-analise"
+            >
+
+                <div class="resultado-vazio">
+
+                    🛡️
+
+                    <h2>
+                        Aguardando mensagem
+                    </h2>
+
+                    <p>
+                        Envie uma mensagem pela área
+                        <strong>Conversa</strong>.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="status">
+                🟢 GuardIA conectado à API
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PAINEL DO RESPONSÁVEL
+         ===================================================== -->
+
+    <div
+        id="telaPainel"
+        class="tela"
+    >
+
+        <div class="container container-largo">
+
+
+            <div class="cabecalho-painel">
+
+                <div class="titulo-painel">
+
+                    <h2>
+                        📊 Painel do Responsável
+                    </h2>
+
+                    <p>
+                        Monitoramento de segurança digital
+                    </p>
+
+                </div>
+
+
+                <div class="status-protecao">
+
+                    <span class="ponto-verde"></span>
+
+                    🛡️ SISTEMA PROTEGIDO
+
+                </div>
+
+            </div>
+
+
+
+            <div class="estatisticas">
+
+
+                <div class="card">
+
+                    <div class="card-icone">
+                        🔔
+                    </div>
+
+                    <div
+                        id="totalAlertas"
+                        class="card-numero"
+                    >
+                        0
+                    </div>
+
+                    <div class="card-titulo">
+                        Total de alertas
+                    </div>
+
+                </div>
+
+
+
+                <div class="card alerta">
+
+                    <div class="card-icone">
+                        🔴
+                    </div>
+
+                    <div
+                        id="totalAlto"
+                        class="card-numero"
+                    >
+                        0
+                    </div>
+
+                    <div class="card-titulo">
+                        Risco alto
+                    </div>
+
+                </div>
+
+
+
+                <div class="card moderado">
+
+                    <div class="card-icone">
+                        🟡
+                    </div>
+
+                    <div
+                        id="totalModerado"
+                        class="card-numero"
+                    >
+                        0
+                    </div>
+
+                    <div class="card-titulo">
+                        Risco moderado
+                    </div>
+
+                </div>
+
+
+
+                <div class="card seguro">
+
+                    <div class="card-icone">
+                        🟢
+                    </div>
+
+                    <div
+                        id="totalBaixo"
+                        class="card-numero"
+                    >
+                        0
+                    </div>
+
+                    <div class="card-titulo">
+                        Risco baixo
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="dashboard-grid">
+
+
+                <div class="painel-box">
+
+                    <h3>
+                        📊 Níveis de risco
+                    </h3>
+
+
+                    <div class="risco-item">
+
+                        <div class="risco-cabecalho">
+
+                            <span>
+                                🔴 Alto
+                            </span>
+
+                            <span id="porcentagemAlto">
+                                0%
+                            </span>
+
+                        </div>
+
+
+                        <div class="barra-fundo">
+
+                            <div
+                                id="barraAlto"
+                                class="barra barra-alto"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="risco-item">
+
+                        <div class="risco-cabecalho">
+
+                            <span>
+                                🟡 Moderado
+                            </span>
+
+                            <span id="porcentagemModerado">
+                                0%
+                            </span>
+
+                        </div>
+
+
+                        <div class="barra-fundo">
+
+                            <div
+                                id="barraModerado"
+                                class="barra barra-moderado"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="risco-item">
+
+                        <div class="risco-cabecalho">
+
+                            <span>
+                                🟢 Baixo
+                            </span>
+
+                            <span id="porcentagemBaixo">
+                                0%
+                            </span>
+
+                        </div>
+
+
+                        <div class="barra-fundo">
+
+                            <div
+                                id="barraBaixo"
+                                class="barra barra-baixo"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="painel-box">
+
+                    <h3>
+                        🧠 Categorias detectadas
+                    </h3>
+
+
+                    <div class="categoria-item">
+
+                        <span class="categoria-nome">
+                            Cyberbullying
+                        </span>
+
+                        <span
+                            id="categoriaCyber"
+                            class="categoria-numero"
+                        >
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div class="categoria-item">
+
+                        <span class="categoria-nome">
+                            Aliciamento virtual
+                        </span>
+
+                        <span
+                            id="categoriaAliciamento"
+                            class="categoria-numero"
+                        >
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div class="categoria-item">
+
+                        <span class="categoria-nome">
+                            Ameaças
+                        </span>
+
+                        <span
+                            id="categoriaAmeaca"
+                            class="categoria-numero"
+                        >
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div class="categoria-item">
+
+                        <span class="categoria-nome">
+                            Golpes
+                        </span>
+
+                        <span
+                            id="categoriaGolpe"
+                            class="categoria-numero"
+                        >
+                            0
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="historico">
+
+                <div class="historico-cabecalho">
+
+                    <h3>
+                        🕐 Histórico de alertas
+                    </h3>
+
+
+                    <button
+                        class="botao-limpar"
+                        onclick="limparHistorico()"
+                    >
+                        🗑️ Limpar histórico
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="listaAlertas"
+                    class="lista-alertas"
+                ></div>
+
+            </div>
+
+
+            <p class="rodape">
+
+                🛡️ GuardIA —
+                Demonstração acadêmica para
+                Feira de Ciências
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ALERTA DE SEGURANÇA
+         ===================================================== -->
+
+    <div
+        id="overlay"
+        class="overlay"
+    >
+
+        <div
+            id="alerta"
+            class="alerta"
+        >
+
+            <div
+                id="iconeAlerta"
+                class="icone-alerta"
+            >
+                ⚠️
+            </div>
+
+
+            <h2 id="tituloAlerta">
+                ALERTA DE SEGURANÇA
+            </h2>
+
+
+            <p
+                id="mensagemAlerta"
+                class="mensagem-alerta"
+            ></p>
+
+
+            <div class="dados-alerta">
+
+
+                <div class="dado">
+
+                    <strong>
+                        Categoria:
+                    </strong>
+
+                    <span id="alertaCategoria"></span>
+
+                </div>
+
+
+                <div class="dado">
+
+                    <strong>
+                        Nível:
+                    </strong>
+
+                    <span id="alertaNivel"></span>
+
+                </div>
+
+
+                <div class="dado">
+
+                    <strong>
+                        Confiança:
+                    </strong>
+
+                    <span id="alertaConfianca"></span>
+
+                </div>
+
+
+                <div class="dado">
+
+                    <strong>
+                        Pontuação:
+                    </strong>
+
+                    <span id="alertaPontuacao"></span>
+
+                </div>
+
+            </div>
+
+
+            <div class="orientacao">
+
+                <strong>
+                    💡 Orientação
+                </strong>
+
+                <p
+                    id="alertaRecomendacao"
+                    class="texto-orientacao"
+                ></p>
+
+            </div>
+
+
+            <button
+                onclick="fecharOverlay()"
+            >
+                ENTENDI
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         SIMULAÇÃO REALISTA DO CELULAR
+         ===================================================== -->
+
+    <div
+        id="celularOverlay"
+        class="celular-overlay"
+    >
+
+        <button
+            class="celular-fechar"
+            onclick="fecharCelular()"
+            aria-label="Fechar simulação do celular"
+            title="Fechar"
+        >
+            ✕
+        </button>
+
+
+        <div
+            id="celular"
+            class="celular"
+        >
+
+            <div class="celular-ilha">
+
+                <div class="celular-camera"></div>
+
+                <div class="celular-camera-pequena"></div>
+
+            </div>
+
+
+            <div class="celular-status-bar">
+
+                <span id="celularHora">
+                    22:41
+                </span>
+
+                <div class="celular-status-icones">
+
+                    <span>
+                        ▴▴
+                    </span>
+
+                    <span>
+                        ◉
+                    </span>
+
+                    <span class="icone-bateria">
+
+                        <span class="bateria-corpo">
+
+                            <span class="bateria-nivel"></span>
+
+                        </span>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="tela-celular">
+
+                <div class="celular-papel-parede">
+
+                    <div class="brilho-celular brilho-1"></div>
+
+                    <div class="brilho-celular brilho-2"></div>
+
+                </div>
+
+
+                <div class="celular-cabecalho-app">
+
+                    <div class="celular-voltar">
+                        ‹
+                    </div>
+
+
+                    <div class="celular-identidade">
+
+                        <div class="celular-logo">
+
+                            <img
+                                src="{{ url_for('static', filename='img/guardia.png') }}"
+                                alt="GuardIA"
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="celular-nome-app">
+                                GuardIA
+                            </div>
+
+                            <div class="celular-status-app">
+                                Proteção digital ativa
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="celular-menu">
+                        ⋮
+                    </div>
+
+                </div>
+
+
+
+                <div
+                    id="notificacao"
+                    class="notificacao"
+                >
+
+                    <div class="notificacao-linha-superior">
+
+                        <div class="notificacao-app-identidade">
+
+                            <div class="notificacao-icone">
+
+                                <img
+                                    src="{{ url_for('static', filename='img/guardia.png') }}"
+                                    alt="GuardIA"
+                                >
+
+                            </div>
+
+
+                            <div>
+
+                                <div class="notificacao-app-nome">
+                                    GuardIA
+                                </div>
+
+                                <div class="notificacao-app-tipo">
+                                    ALERTA DE SEGURANÇA
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="notificacaoHora"
+                            class="notificacao-hora"
+                        >
+                            agora
+                        </div>
+
+                    </div>
+
+
+                    <div class="notificacao-divisor"></div>
+
+
+                    <div class="notificacao-alerta-principal">
+
+                        <div
+                            id="notificacaoEmoji"
+                            class="notificacao-alerta-emoji"
+                        >
+                            ⚠️
+                        </div>
+
+
+                        <div>
+
+                            <div
+                                id="notificacaoTitulo"
+                                class="notificacao-titulo"
+                            >
+                                Possível risco identificado
+                            </div>
+
+
+                            <div
+                                id="notificacaoResumo"
+                                class="notificacao-resumo"
+                            >
+                                O GuardIA identificou sinais
+                                de risco em uma conversa.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="notificacao-dados">
+
+                        <div class="notificacao-dado">
+
+                            <span>
+                                Categoria
+                            </span>
+
+                            <strong id="celularCategoria">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="notificacao-dado">
+
+                            <span>
+                                Nível
+                            </span>
+
+                            <strong id="celularNivel">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="notificacao-dado">
+
+                            <span>
+                                Confiança
+                            </span>
+
+                            <strong id="celularConfianca">
+                                -
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="notificacao-seguranca">
+
+                        <span class="notificacao-seguranca-icone">
+                            🛡️
+                        </span>
+
+                        <span>
+                            Alerta gerado pelo sistema
+                            de proteção GuardIA.
+                        </span>
+
+                    </div>
+
+
+                    <div class="notificacao-acoes">
+
+                        <button
+                            class="notificacao-botao"
+                            onclick="abrirAlertaPeloCelular()"
+                        >
+                            VER ALERTA
+                        </button>
+
+
+                        <button
+                            class="notificacao-botao secundario"
+                            onclick="fecharCelular()"
+                        >
+                            DISPENSAR
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="celular-indicador">
+
+                    <span></span>
+
+                    Simulação do dispositivo do responsável
+
+                </div>
+
+
+                <div class="celular-home-indicator"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BOTÃO SOBRE O PROJETO
+         ===================================================== -->
+
+    <button
+        id="botaoSobreProjeto"
+        class="botao-sobre-projeto"
+        onclick="mostrarSobreProjeto()"
+        aria-label="Sobre o projeto GuardIA"
+    >
+
+        <img
+            src="{{ url_for('static', filename='img/guardia.png') }}"
+            alt="Logo GuardIA"
+        >
+
+        <span>
+            Sobre o projeto
+        </span>
+
+    </button>
+
+
+
+    <!-- =====================================================
+         JANELA SOBRE O PROJETO
+         ===================================================== -->
+
+    <div
+        id="sobreProjetoOverlay"
+        class="sobre-projeto-overlay"
+    >
+
+        <div class="sobre-projeto-modal">
+
+
+            <div class="sobre-projeto-cabecalho">
+
+                <div class="sobre-projeto-identidade">
+
+                    <img
+                        src="{{ url_for('static', filename='img/guardia.png') }}"
+                        alt="Logo GuardIA"
+                        class="logo-sobre-projeto"
+                    >
+
+
+                    <div>
+
+                        <h2>
+                            Sobre o GuardIA
+                        </h2>
+
+                        <p>
+                            Projeto de proteção digital
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="botao-fechar-sobre"
+                    onclick="fecharSobreProjeto()"
+                    aria-label="Fechar"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+
+
+            <div class="sobre-projeto-conteudo">
+
+
+                <!-- =================================================
+                     OBJETIVO
+                     ================================================= -->
+
+                <section class="sobre-secao">
+
+                    <div class="sobre-icone">
+                        🎯
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Objetivo do projeto
+                        </h3>
+
+
+                        <p>
+
+                            O <strong>GuardIA</strong> é um protótipo
+                            de sistema com Inteligência Artificial
+                            criado para demonstrar como a tecnologia
+                            pode auxiliar na proteção digital de
+                            crianças e adolescentes.
+
+                        </p>
+
+
+                        <p>
+
+                            O sistema analisa mensagens de uma conversa
+                            e procura identificar possíveis situações
+                            de risco, como
+                            <strong>cyberbullying, aliciamento virtual,
+                            ameaças e golpes</strong>.
+
+                        </p>
+
+
+                        <p>
+
+                            A proposta é apresentar, de forma simples
+                            e educativa, como um sistema desse tipo
+                            poderia identificar sinais de atenção e
+                            orientar o usuário diante de uma situação
+                            potencialmente perigosa.
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     COMO FUNCIONA
+                     ================================================= -->
+
+                <section class="sobre-secao">
+
+                    <div class="sobre-icone">
+                        🧠
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Como funciona
+                        </h3>
+
+
+                        <p>
+
+                            O funcionamento do GuardIA começa quando
+                            uma mensagem é digitada na área
+                            <strong>Conversa</strong>.
+
+                        </p>
+
+
+                        <p>
+
+                            A mensagem é enviada para a API do sistema,
+                            que realiza a análise e identifica possíveis
+                            sinais relacionados às categorias de risco.
+
+                        </p>
+
+
+                        <p>
+
+                            O resultado apresenta a
+                            <strong>categoria identificada,
+                            nível de risco, confiança da análise,
+                            sinais encontrados e orientação</strong>.
+
+                        </p>
+
+
+                        <p>
+
+                            Quando um possível risco é detectado,
+                            o protótipo também demonstra uma
+                            notificação simulada no celular do
+                            responsável.
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     TECNOLOGIAS
+                     ================================================= -->
+
+                <section class="sobre-secao">
+
+                    <div class="sobre-icone">
+                        💻
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Tecnologias utilizadas
+                        </h3>
+
+
+                        <div class="linguagens-grid">
+
+
+                            <div class="linguagem-card">
+
+                                <strong>
+                                    🐍 Python + Flask
+                                </strong>
+
+                                <span>
+                                    Utilizados no desenvolvimento da
+                                    lógica do sistema, processamento
+                                    das mensagens e criação da API
+                                    responsável pela análise.
+                                </span>
+
+                            </div>
+
+
+                            <div class="linguagem-card">
+
+                                <strong>
+                                    🌐 HTML
+                                </strong>
+
+                                <span>
+                                    Responsável pela estrutura das
+                                    telas, informações, componentes
+                                    e organização da interface.
+                                </span>
+
+                            </div>
+
+
+                            <div class="linguagem-card">
+
+                                <strong>
+                                    🎨 CSS
+                                </strong>
+
+                                <span>
+                                    Responsável pela identidade visual,
+                                    cores, layout, cartões, animações,
+                                    celular simulado e responsividade.
+                                </span>
+
+                            </div>
+
+
+                            <div class="linguagem-card">
+
+                                <strong>
+                                    ⚡ JavaScript
+                                </strong>
+
+                                <span>
+                                    Controla a interação da interface,
+                                    comunicação com a API, resultados,
+                                    alertas, histórico e painel.
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     SISTEMA DE PROTEÇÃO
+                     ================================================= -->
+
+                <section class="sobre-secao">
+
+                    <div class="sobre-icone">
+                        🛡️
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Sistema de proteção
+                        </h3>
+
+
+                        <p>
+
+                            O GuardIA foi pensado como uma ferramenta
+                            de apoio à segurança digital, buscando
+                            transformar a análise de mensagens em
+                            informações simples e fáceis de compreender.
+
+                        </p>
+
+
+                        <p>
+
+                            Quando uma situação de risco é identificada,
+                            o sistema apresenta uma orientação educativa
+                            e demonstra como um responsável poderia ser
+                            informado sobre o ocorrido.
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     PROTÓTIPO ACADÊMICO
+                     ================================================= -->
+
+                <section class="sobre-secao destaque-sobre">
+
+                    <div class="sobre-icone">
+                        🧪
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Protótipo acadêmico
+                        </h3>
+
+
+                        <p>
+
+                            Esta versão do <strong>GuardIA</strong>
+                            foi desenvolvida como uma demonstração
+                            acadêmica para a <strong>Feira de Ciências</strong>.
+
+                        </p>
+
+
+                        <p>
+
+                            O projeto tem como objetivo demonstrar
+                            o conceito de uma ferramenta de proteção
+                            digital e apresentar como esse tipo de
+                            tecnologia poderia evoluir futuramente
+                            para uma aplicação mais completa.
+
+                        </p>
+
+
+                        <div class="aviso-demo">
+
+                            ⚠️ Esta versão é uma simulação
+                            educacional. As notificações apresentadas
+                            no celular são simuladas e não são enviadas
+                            para um aparelho real.
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+
+
+            <div class="sobre-projeto-rodape">
+
+                <span>
+                    🛡️ GuardIA
+                </span>
+
+                <span>
+                    Demonstração acadêmica
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script
+        src="{{ url_for('static', filename='js/app.js') }}"
+    ></script>
+
+
+</body>
+
+</html>
