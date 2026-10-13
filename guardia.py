@@ -398,7 +398,48 @@ CATEGORIAS = {
             "peitos",
             "bunda",
             "nádegas",
-            "nadegas"
+            "nadegas",
+
+            # Gírias e expressões identificadas nos testes
+            "puta",
+            "vadia",
+            "prostituta",
+            "punheta",
+            "priquito",
+            "buceta",
+            "xebiu",
+            "xereca",
+            "anus",
+            "anal",
+            "cu",
+            "piroca",
+            "pirocada",
+            "brioco",
+            "anel",
+            "caneco",
+            "suruba",
+            "orgia",
+            "peca",
+            "chibata",
+            "pau",
+            "rola",
+            "penis",
+            "testiculo",
+            "arrombado",
+            "estourado",
+            "cachorra",
+            "cadela",
+            "rapariga",
+            "safada",
+            "quenga",
+            "do job",
+            "pica",
+            "pinto",
+            "furico",
+            "descabelar o palhaco",
+            "descascar a banana"
+            "gostosa",
+            "putinha",
         ],
 
         "contextos": [
@@ -670,11 +711,9 @@ CATEGORIAS = {
         ],
 
         "contextos": [
-            "vou te",
             "vou matar voce",
             "vou matar você",
 
-            "eu vou te",
             "eu vou matar voce",
             "eu vou matar você",
 
@@ -1046,7 +1085,46 @@ PADROES_INTIMO = [
     r"\bseios\b",
     r"\bpeitos\b",
     r"\bbunda\b",
-    r"\bnadegas\b"
+    r"\bnadegas\b",
+
+    # Gírias e expressões identificadas nos testes
+    r"\bputa\b",
+    r"\bvadia\b",
+    r"\bprostituta\b",
+    r"\bpunheta\b",
+    r"\bpriquito\b",
+    r"\bbuceta\b",
+    r"\bxebiu\b",
+    r"\bxereca\b",
+    r"\banus\b",
+    r"\banal\b",
+    r"\bcu\b",
+    r"\bpiroca\b",
+    r"\bpirocada\b",
+    r"\bbrioco\b",
+    r"\banel\b",
+    r"\bcaneco\b",
+    r"\bsuruba\b",
+    r"\borgia\b",
+    r"\bpeca\b",
+    r"\bchibata\b",
+    r"\bpau\b",
+    r"\brola\b",
+    r"\bpenis\b",
+    r"\btesticulo\b",
+    r"\barrombado\b",
+    r"\bestourado\b",
+    r"\bcachorra\b",
+    r"\bcadela\b",
+    r"\brapariga\b",
+    r"\bsafada\b",
+    r"\bquenga\b",
+    r"\bdo\s+job\b",
+    r"\bpica\b",
+    r"\bpinto\b",
+    r"\bfurico\b",
+    r"\bdescabelar\s+o\s+palhaco\b",
+    r"\bdescascar\s+a\s+banana\b"
 ]
 
 
@@ -1335,7 +1413,9 @@ PADROES_SEGREDO = [
 
     r"\bninguem\s+precisa\s+saber\b",
 
-    r"\bisso\s+fica\s+entre\s+nos\b"
+    r"\bisso\s+fica\s+entre\s+nos\b",
+    r"\bpediu\s+para\s+nao\s+contar\s+para\s+os\s+pais\b",
+    r"\bdisse\s+para\s+nao\s+contar\b"
 ]
 
 
@@ -1411,7 +1491,10 @@ PADROES_COERCAO = [
 
     r"\bvou\s+divulgar\b",
 
-    r"\bninguem\s+pode\s+saber\b"
+    r"\bninguem\s+pode\s+saber\b",
+    r"\bse\s+eu\s+nao\s+fizer\b",
+    r"\bse\s+eu\s+nao\s+fizer\s+o\s+que\s+ele\s+quer\b",
+    r"\bvai\s+divulgar\b"
 ]
 
 
@@ -2136,7 +2219,6 @@ def analisar_categoria(
 
             for termo in [
 
-                "vou te",
                 "vou matar voce",
                 "vou te matar",
                 "vou te machucar",
@@ -2300,8 +2382,7 @@ def analisar_categoria(
 
         termos_diretos = [
 
-            "vou te",
-            "eu vou te",
+            "eu vou te matar",
             "vou matar",
             "vou te matar",
             "vou te pegar",

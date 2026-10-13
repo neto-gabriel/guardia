@@ -552,42 +552,20 @@ body {
 }
 
 
+
 .mensagem-usuario {
-
-    align-self:
-        flex-end;
-
-    max-width:
-        85%;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            var(--guardia-primary),
-            var(--guardia-primary-dark)
-        );
-
-    border-radius:
-        14px 14px 4px 14px;
-
-    padding:
-        11px 14px;
-
-}
-
-
-.mensagem-label {
-
-    font-size:
-        11px;
-
-    opacity:
-        0.75;
-
-    margin-bottom:
-        4px;
-
+    align-self: flex-start;
+    width: fit-content;
+    max-width: 85%;
+    background: #343744;
+    color: #F2F4F9;
+    border: 1px solid #454957;
+    border-radius: 16px 16px 16px 4px;
+    padding: 12px 16px;
+    margin-right: auto;
+    margin-left: 0;
+    overflow-wrap: anywhere;
+    box-shadow: none;
 }
 
 

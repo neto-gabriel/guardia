@@ -445,9 +445,6 @@ function adicionarMensagemUsuario(
 
     mensagemElemento.innerHTML = `
 
-        <div class="mensagem-label">
-            Você
-        </div>
 
         <div class="mensagem-conteudo">
             ${escaparHTML(mensagem)}
